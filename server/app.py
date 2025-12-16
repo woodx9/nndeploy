@@ -184,7 +184,7 @@ def start_progress_listener(server: NnDeployServer, progress_q: mp.Queue):
 
 def load_existing_plugins(plugin_dir: Path):
     for f in plugin_dir.iterdir():
-        if f.suffix in {".py", ".so"} and f.is_file():
+        if f.suffix in {".py", ".so", ".dll", ".dylib"} and f.is_file():
             add_global_import_lib(str(f.resolve()))
     import_global_import_lib()
 
